@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 :root {
+    /* button colors */
     --success-color           : #2ecc71;
     --error-color             : #e74c3c;
 }
