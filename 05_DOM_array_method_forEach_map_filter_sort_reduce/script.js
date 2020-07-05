@@ -33,7 +33,12 @@ function doubleMoney() {
     updateDOM()
 }
 
+// Sort users by richest
+function sortByRichest() {
+    data.sort((a, b) => b.money - a.money)
 
+    updateDOM()
+}
 
 // Add new object to data array
 function addData(obj) {
@@ -64,3 +69,4 @@ function formatMoney(number) {
 // Event listeners
 addUserBtn.addEventListener("click", getRandomUser)
 doubleBtn.addEventListener("click", doubleMoney)
+sortBtn.addEventListener("click", sortByRichest)
