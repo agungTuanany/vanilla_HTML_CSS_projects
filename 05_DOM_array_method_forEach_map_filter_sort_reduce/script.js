@@ -24,6 +24,17 @@ async function getRandomUser() {
     addData(newUser)
 }
 
+// Double user money
+function doubleMoney() {
+    data = data.map(user => {
+        return { ...user, money: user.money * 2 }
+    })
+
+    updateDOM()
+}
+
+
+
 // Add new object to data array
 function addData(obj) {
     data.push(obj)
@@ -44,7 +55,6 @@ function updateDOM(provideData = data) {
     })
 }
 
-
 // https://stackoverflow/questions/149005/howt-to-format-numbers-as-currency-string
 // Formant number as money
 function formatMoney(number) {
@@ -53,3 +63,4 @@ function formatMoney(number) {
 
 // Event listeners
 addUserBtn.addEventListener("click", getRandomUser)
+doubleBtn.addEventListener("click", doubleMoney)
