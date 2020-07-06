@@ -2,9 +2,6 @@
 
 :root {
 
-    /* Miscellaneous */
-    --modal-duration               : 1s;
-
     --primary-color                : #30336B;
     --secondary-color              : #BE2EDD;
 
@@ -14,6 +11,9 @@
     --border-color                 : 2px solid rgba(200, 200, 200, 0.1);
     --transparent-background       : rgba(0, 0, 0, 0.3);
     --transparent-modal-background : rgba(0, 0, 0, 0.6);
+
+    /* Miscellaneous */
+    --modal-duration               : 1s;
 }
 
 * {
@@ -21,9 +21,15 @@
 }
 
 body {
-    font-family                    : "Lato", sans-serf;
+    font-family                    : "Lato", sans-serif;
     margin                         : 0;
+    transition: transform 0.3s ease;
 
+}
+
+body.show-nav {
+    /*Width of nav*/
+    transform: translateX(200px);
 }
 
 nav {
@@ -34,7 +40,7 @@ nav {
     top                            : 0;
     left                           : 0;
     width                          : 200px;
-    height                         : 100vh;
+    height                         : 100%;
     z-index                        : 100;
 
     /* transfrom process in-out */
@@ -90,7 +96,7 @@ header {
 }
 
 header p {
-    margin                         : 30 px;
+    margin                         : 30px;
 }
 
 button, input[type="submit"] {
@@ -127,6 +133,7 @@ button:focus {
 
 .modal-container {
     background-color               : var(--transparent-modal-background);
+    /* comment this to show the modal in development process*/
     display                        : none;
     position                       : fixed;
     /* covering entire window */
@@ -135,6 +142,11 @@ button:focus {
     right                          : 0;
     bottom                         : 0;
 }
+
+.modal-container.show-modal {
+    display: block;
+}
+
 
 .modal {
     background-color               : var(--white);
@@ -148,6 +160,9 @@ button:focus {
     transform                      : translate(-50%, -50%);
     max-width                      : 100%;
     width                          : 400px;
+    /*animation to open modal*/
+    animation-name                 : modal-open;
+    animation-duration             : var(--modal-duration);
 }
 
 .modal-header {
@@ -185,4 +200,24 @@ button:focus {
     position                       : absolute;
     top                            : 0;
     right                          : 0;
+}
+
+@keyframes modal-open {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/*XXX TODO: implement modal-close when .close-button clicked in .modal-container XXX */
+@keyframes modal-close {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
