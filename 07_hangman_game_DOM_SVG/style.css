@@ -1,0 +1,20 @@
+:root {
+    --white: #FFFFFF;
+    --blue-background : #34495E;
+}
+
+body {
+    background-color: var(--blue-background);
+    color: var(--white);
+}
+
+.figure-container {
+    fill: transparent;
+    stroke: var(--white);
+    stroke-width: 4px;
+    stroke-linecap: round;
+}
+
+.figure-part {
+    display: none;
+}
