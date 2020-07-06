@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="id=edge" />
+        <title>My Landing Page</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <!-- XXX @TODO: next project use other than font-awesome cause to to big -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+            integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+            crossorigin="anonymous"
+            />
+    </head>
+    <body>
+        <nav>
+            <div clas="logo">
+                <img src="https://randomuser.me/api/portraits/men/79.jpg" alt="user" />
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contat Me</a></li>
+            </ul>
+        </nav>
+
+        <header>
+            <button id="toggle" class="toggle" >
+                <i class="fa fa-bars fa-2x"></i>
+            </button>
+
+            <h1>My landing page</h1>
+
+            <p>Programmer, Web-Developer and Entrepenuer</p>
+
+            <button class="cta-btn" id="open">Sign Up</button>
+        </header>
+
+        <div class="container">
+            <h2>What is this landing page about?</h2>
+        </div>
+        <p>
+            <!-- This is <a hrf="home.html">agung tuanany</a>. I am a Jakarta based programmer and Web Develper. -->
+            <!-- Most of my work on <a href="portfolio.html">developing Web</a>. -->
+            I am freelance creative developer from Jakarta.
+            I use JavaScript and NodeJS to create web from scratch, and I wrote my own libraries.
+            Previously full stack developer at <a href="#">saskara</a>.
+            I am open to full-time opportunities, freelance work or collaborative projects.
+        </p>
+
+        <h2>Tell Me More</h2>
+
+        <p>
+            There's never been a better time to choose a forward-thinking with collaborative and unconventional approach.
+        </p>
+
+        <p>
+            I believe design and creative in web development is relish in creating purposeful digital experience that
+            people fall in love with. I get under th skin of your true goals and challenges,
+            to deliver you the best solution that we all collectively believe in.
+        </p>
+
+        <p>
+            I am about people, simplicity and the share goal of creating thoughtful and visionary designs.
+        </p>
+
+        <p>
+            I am driven by those I work with -when there is chemistry, trust and  decisiveness, great work happens.
+            I am specialize in creating bespoke brand identities, websites and web application for start-ups,
+            brands and companies of all sizes both locally and internationally.
+        </p>
+
+        <h2>Our Services</h2>
+
+        <ul class="our_services">
+            <li>UI/UX Web Design</li>
+            <li>Brand Identity</li>
+            <li>Motion Design</li>
+            <li>Front-end Development</li>
+            <li>Back-end Development</li>
+            <li>Webb App Development</li>
+            <li>SEO Optimization</li>
+        </ul>
+
+        <!-- MODAL -->
+        <div class="modal-container" id="modal">
+            <div class="modal">
+
+                <button cass="close-btn" id="close">
+                    <!-- XXX TODO: You can use hamburger button from scratch --->
+                    <i class="fa fa-times"></i>
+                </button>
+
+                <div class="modal-header">
+                    <h3>Sign Up</h3>
+                </div>
+
+                <div class="modal-content">
+                    <!-- XXX TODO: Change this onto suitable meaning for portfolio -->
+                    <!-- XXX TODO: This also can be a CMS menubar -->
+                    <p> Register with us to get offers, support and more</p>
+                    <form class="modal-form">
+                        <div>
+                            <label for="name">Name</label>
+                            <input type="text" id="name"  placeholder="Enter Name" class="forn-input" />
+                        </div>
+
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="text" id="email" placeholder="Enter Email" class="Form-input" />
+                        </div>
+
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Enter password" class="Form-input" />
+                        </div>
+
+                        <div>
+                            <label for="password2">Confirm Password</label>
+                            <input type="password" id="password2" placeholder="Confirm password" class="Form-input" />
+                        </div>
+
+                        <input type="submit"  value="Submit" class="submit-btn" />
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

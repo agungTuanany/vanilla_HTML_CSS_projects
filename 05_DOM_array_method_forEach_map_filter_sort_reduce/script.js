@@ -1,7 +1,7 @@
 const main               = document.getElementById("main")
 const addUserBtn         = document.getElementById("add_user")
 const doubleBtn          = document.getElementById("double")
-const showMilionairsBtn   = document.getElementById("show_millioners")
+const showMilionairsBtn  = document.getElementById("show_millioners")
 const sortBtn            = document.getElementById("sort")
 const calculateWealthBtn = document.getElementById("calculate_wealth")
 
@@ -78,7 +78,7 @@ function updateDOM(provideData = data) {
 }
 
 // https://stackoverflow/questions/149005/howt-to-format-numbers-as-currency-string
-// Formant number as money
+// Format number as money
 function formatMoney(number) {
     return '$' + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
 }

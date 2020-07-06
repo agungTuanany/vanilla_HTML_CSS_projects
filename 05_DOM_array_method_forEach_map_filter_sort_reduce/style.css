@@ -61,7 +61,7 @@ h2 {
 
 h3 {
     background      : var(--white);
-    border-bottom   : var(--border);
+    border-top      : var(--border);
     padding         : 10px;
     display         : flex;
     justify-content : space-between;
