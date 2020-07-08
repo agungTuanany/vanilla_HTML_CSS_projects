@@ -1,9 +1,13 @@
 :root {
     --white: #FFFFFF;
-    --blue-background : #34495E;
+    --bluewood-background : #34495E;
+    --blue-marine: #2980B9;
 
     /* borders */
-    --border-blue: 3px solid #2980B9;
+    --border-blue: 3px solid var(--blue-marine);
+    --transparent: rgba(0, 0, 0, 0.3);
+    --transparent-background-2: rgba(0, 0, 0, 0.1);
+
 }
 
 * {
@@ -11,7 +15,7 @@
 }
 
 body {
-    background-color: var(--blue-background);
+    background-color: var(--bluewood-background);
     color: var(--white);
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
@@ -83,4 +87,59 @@ h1 {
     width: 20px;
 }
 
+.popup-container {
+    background-color: var(--transparent);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* display: flex; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
 
+.popup {
+    background: var(--blue-marine);
+    border-radius: 5px;
+    box-shadow: 0 15px 10px 3px var(--transparent-background-2);
+    padding: 20px;
+    text-align: center;
+}
+
+.popup button {
+    cursor: pointer;
+    background-color: var(--white);
+    color: var(--blue-marine);
+    border: 0;
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+.popup button:active {
+    transform: scale(0.98);
+}
+
+.popup button:focus {
+    outline: 0;
+}
+
+.notification-container {
+    background-color: var(--transparent);
+    border-radius: 10px 10px 0 0;
+    padding: 15px 20px;
+    /* position in browser body not in game-container */
+    position: absolute;
+    bottom: -50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.notification-container - {
+    margin: 0;
+}
+
+.notification-container.show {
+    transform: translateY(-50px);
+}
