@@ -1,145 +1,145 @@
 :root {
-    --white: #FFFFFF;
-    --bluewood-background : #34495E;
-    --blue-marine: #2980B9;
+    --white                      : #FFFFFF;
+    --bluewood-background        : #34495E;
+    --blue-marine                : #2980B9;
 
     /* borders */
-    --border-blue: 3px solid var(--blue-marine);
-    --transparent: rgba(0, 0, 0, 0.3);
-    --transparent-background-2: rgba(0, 0, 0, 0.1);
+    --border-blue                : 3px solid var(--blue-marine);
+    --transparent                : rgba(0, 0, 0, 0.3);
+    --transparent-background-2   : rgba(0, 0, 0, 0.1);
 
 }
 
 * {
-    box-sizing: border-box;
+    box-sizing                   : border-box;
 }
 
 body {
-    background-color: var(--bluewood-background);
-    color: var(--white);
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 80vh;
-    margin: 0;
-    overflow: hidden;
+    background-color             : var(--bluewood-background);
+    color                        : var(--white);
+    font-family                  : Arial, Helvetica, sans-serif;
+    display                      : flex;
+    flex-direction               : column;
+    align-items                  : center;
+    height                       : 80vh;
+    margin                       : 0;
+    overflow                     : hidden;
 }
 
 h1 {
-    margin: 20px 0 0 0;
+    margin                       : 20px 0 0 0;
 }
 
 .game-container {
-    padding: 20px 30px;
-    position: relative;
-    margin: auto;
-    height: 350px;
-    width: 450px;
+    padding                      : 20px 30px;
+    position                     : relative;
+    margin                       : auto;
+    height                       : 350px;
+    width                        : 450px;
 }
 
 .figure-container {
-    fill: transparent;
-    stroke: var(--white);
-    stroke-width: 4px;
-    stroke-linecap: round;
+    fill                         : transparent;
+    stroke                       : var(--white);
+    stroke-width                 : 4px;
+    stroke-linecap               : round;
 }
 
 .figure-part {
-    display: none;
+    display                      : none;
 }
 
 
 .wrong-letters-container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    text-align: right
+    position                     : absolute;
+    top                          : 20px;
+    right                        : 20px;
+    display                      : flex;
+    flex-direction               : column;
+    text-align                   : right
 }
 
 
 .wrong-letters-container p {
-    margin: 0 0 5px 0;
+    margin                       : 0 0 5px 0;
 }
 
 .wrong-letters-containers span {
-    font-size: 24px;
+    font-size                    : 24px;
 }
 
 .word {
-    display: flex;
-    position: absolute;
-    button: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    display                      : flex;
+    position                     : absolute;
+    button                       : 10px;
+    left                         : 50%;
+    transform                    : translateX(-50%);
 }
 
 .letter {
-    border-bottom: var(--border-blue);
-    display: inline-flex;
-    font-size: 30px;
-    align-items: center;
-    justify-content: center;
-    margin: 0 3px;
-    height: 50px;
-    width: 20px;
+    border-bottom                : var(--border-blue);
+    display                      : inline-flex;
+    font-size                    : 30px;
+    align-items                  : center;
+    justify-content              : center;
+    margin                       : 0 3px;
+    height                       : 50px;
+    width                        : 20px;
 }
 
 .popup-container {
-    background-color: var(--transparent);
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    /* display: flex; */
-    display: none;
-    align-items: center;
-    justify-content: center;
+    background-color             : var(--transparent);
+    position                     : fixed;
+    top                          : 0;
+    bottom                       : 0;
+    left                         : 0;
+    right                        : 0;
+    /* display                   : flex; */
+    display                      : none;
+    align-items                  : center;
+    justify-content              : center;
 }
 
 .popup {
-    background: var(--blue-marine);
-    border-radius: 5px;
-    box-shadow: 0 15px 10px 3px var(--transparent-background-2);
-    padding: 20px;
-    text-align: center;
+    background                   : var(--blue-marine);
+    border-radius                : 5px;
+    box-shadow                   : 0 15px 10px 3px var(--transparent-background-2);
+    padding                      : 20px;
+    text-align                   : center;
 }
 
 .popup button {
-    cursor: pointer;
-    background-color: var(--white);
-    color: var(--blue-marine);
-    border: 0;
-    margin-top: 20px;
-    padding: 12px 20px;
-    font-size: 16px;
+    cursor                       : pointer;
+    background-color             : var(--white);
+    color                        : var(--blue-marine);
+    border                       : 0;
+    margin-top                   : 20px;
+    padding                      : 12px 20px;
+    font-size                    : 16px;
 }
 
-.popup button:active {
-    transform: scale(0.98);
+.popup button                    : active {
+    transform                    : scale(0.98);
 }
 
-.popup button:focus {
-    outline: 0;
+.popup button                    : focus {
+    outline                      : 0;
 }
 
 .notification-container {
-    background-color: var(--transparent);
-    border-radius: 10px 10px 0 0;
-    padding: 15px 20px;
+    background-color             : var(--transparent);
+    border-radius                : 10px 10px 0 0;
+    padding                      : 15px 20px;
     /* position in browser body not in game-container */
-    position: absolute;
-    bottom: -50px;
-    transition: transform 0.3s ease-in-out;
+    position                     : absolute;
+    bottom                       : -50px;
+    transition                   : transform 0.3s ease-in-out;
 }
 
 .notification-container - {
-    margin: 0;
+    margin                       : 0;
 }
 
 .notification-container.show {
-    transform: translateY(-50px);
+    transform                    : translateY(-50px);
 }

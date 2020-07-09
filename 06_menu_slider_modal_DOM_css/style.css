@@ -162,6 +162,7 @@ button:focus {
     width                          : 400px;
     /*animation to open modal*/
     animation-name                 : modal-open;
+    /* animation-name              : modal-close; */
     animation-duration             : var(--modal-duration);
 }
 
