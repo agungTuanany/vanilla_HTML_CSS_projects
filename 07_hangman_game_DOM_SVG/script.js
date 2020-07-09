@@ -32,7 +32,7 @@ function displayWord () {
     `;
 
     const innerWord = wordElement.innerText.replace(/\n/g, "")
-    console.log (wordElement.innerText, innerWord)
+    // console.log (wordElement.innerText, innerWord)
 
     if (innerWord === selectedWord) {
         finalMessage.innerText = "Congratulations! You won!"
@@ -40,8 +40,51 @@ function displayWord () {
     }
 }
 
-displayWord()
+
+// Update the wrong letters
+function updateWrongLettersElement() {
+    console.log("update wrong")
+
+}
+
+
+// Show notification
+function showNotification() {
+    notification.classList.add("show")
+
+    setTimeout(() => {
+        notification.classList.remove("show")
+    })
+}
+
+// Keydown letter press
+function keydownLetterPress(el) {
+    // console.log(el.code)
+    if (el.keyCode >= 65 && el.keyCode <= 90) {
+        const letter = el.key
+
+        if (selectedWord.includes(letter)) {
+            if (correctLetters.includes(letter)) {
+                showNotification()
+            }
+            else {
+                correctLetters.push(letter)
+
+                displayWord()
+            }
+        }
+        else {
+            if (wrongLetters.includes(letter)) {
+                showNotification()
+            }
+            wrongLetters.push(letter)
+
+            updateWrongLettersElement()
+        }
+    }
+}
 
 // Event Listener
+window.addEventListener( "keydown", keydownLetterPress)
 
-
+displayWord()
