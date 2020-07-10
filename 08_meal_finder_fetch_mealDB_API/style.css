@@ -98,6 +98,16 @@ input[type="text"] {
     opacity                    : 0;
 }
 
+/*Implement Videos*/
+.screen {
+    cursor                     : pointer;
+    width                      : 50%;
+    background-color           : #000 !important;
+    border-top-left-radius     : 10px;
+    border-top-right-radius    : 10px;
+    margin-bottom: 100px;
+}
+
 .meal:hover .meal-info {
     opacity                    : 1;
 }
