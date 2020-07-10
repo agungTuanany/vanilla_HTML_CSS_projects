@@ -5,8 +5,8 @@
     --primary-color                : #30336B;
     --secondary-color              : #BE2EDD;
 
-    --white                        : #FFFFFF;
-    --gray                         : #333333;
+    --white-solid                  : #FFFFFF;
+    --gray-mine-shaft              : #333333;
 
     --border-color                 : 2px solid rgba(200, 200, 200, 0.1);
     --transparent-background       : rgba(0, 0, 0, 0.3);
@@ -23,19 +23,19 @@
 body {
     font-family                    : "Lato", sans-serif;
     margin                         : 0;
-    transition: transform 0.3s ease;
+    transition                     : transform 0.3s ease;
 
 }
 
 body.show-nav {
     /*Width of nav*/
-    transform: translateX(200px);
+    transform                      : translateX(200px);
 }
 
 nav {
     background-color               : var(--primary-color);
     border-right                   : var(--border-color);
-    color                          : var(--white);
+    color                          : var(--white-solid);
     position                       : fixed;
     top                            : 0;
     left                           : 0;
@@ -43,7 +43,7 @@ nav {
     height                         : 100%;
     z-index                        : 100;
 
-    /* transfrom process in-out */
+    /* Transfrom process in-out */
     transform                      : translateX(-100%);
 }
 
@@ -70,16 +70,16 @@ nav ul li {
     padding                        : 20px;
 }
 
-nav ul li:first-of-type {
+nav ul li                          : first-of-type {
     border-top                     : var(--border-color);
 }
 
 nav ul li a {
-    color                          : var(--white);
+    color                          : var(--white-solid);
     text-decoration                : none;
 }
 
-nav ul li a:hover {
+nav ul li a                        : hover {
     text-decoration                : underline;
 }
 
@@ -88,7 +88,7 @@ nav ul li a:hover {
 
 header {
     background-color               : var(--primary-color);
-    color                          : var(--white);
+    color                          : var(--white-solid);
     font-size                      : 130%;
     position                       : relative;
     padding                        : 40px 15px;
@@ -103,12 +103,12 @@ button, input[type="submit"] {
     background-color               : var(--secondary-color);
     border                         : 0;
     border-radius                  : 5px;
-    color                          : var(--white);
+    color                          : var(--white-solid);
     cursor                         : pointer;
     padding                        : 8px 12px;
 }
 
-button:focus {
+button                             : focus {
     outline                        : none;
 }
 
@@ -133,10 +133,10 @@ button:focus {
 
 .modal-container {
     background-color               : var(--transparent-modal-background);
-    /* comment this to show the modal in development process*/
+    /* Comment this to show the modal in development process*/
     display                        : none;
     position                       : fixed;
-    /* covering entire window */
+    /* Covering entire window */
     top                            : 0;
     left                           : 0;
     right                          : 0;
@@ -144,12 +144,12 @@ button:focus {
 }
 
 .modal-container.show-modal {
-    display: block;
+    display                        : block;
 }
 
 
 .modal {
-    background-color               : var(--white);
+    background-color               : var(--white-solid);
     border-radius                  : 5px;
     box-shadow                     : 0 0 10px 0 var(--transparent-background);
     position                       : absolute;
@@ -160,7 +160,7 @@ button:focus {
     transform                      : translate(-50%, -50%);
     max-width                      : 100%;
     width                          : 400px;
-    /*animation to open modal*/
+    /* animation to open modal*/
     animation-name                 : modal-open;
     /* animation-name              : modal-close; */
     animation-duration             : var(--modal-duration);
@@ -168,13 +168,13 @@ button:focus {
 
 .modal-header {
     background-color               : var(--primary-color);
-    color                          : var(--white);
+    color                          : var(--white-solid);
     padding                        : 15px;
 }
 
 .modal-header h3 {
     margin                         : 0;
-    border-bottom                  : 1px solid var(--gray);
+    border-bottom                  : 1px solid var(--gray-mine-shaft);
 }
 
 .modal-content {
@@ -205,20 +205,20 @@ button:focus {
 
 @keyframes modal-open {
     from {
-        opacity: 0;
+        opacity          : 0;
     }
 
     to {
-        opacity: 1
+        opacity          : 1
     }
 }
 
 /*XXX TODO: implement modal-close when .close-button clicked in .modal-container XXX */
 @keyframes modal-close {
     from {
-        opacity: 1;
+        opacity          : 1;
     }
     to {
-        opacity: 0;
+        opacity          : 0;
     }
 }

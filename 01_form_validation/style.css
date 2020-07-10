@@ -2,8 +2,18 @@
 
 :root {
     /* button colors */
-    --success-color           : #2ecc71;
-    --error-color             : #e74c3c;
+    --success-color           : #2ECC71;
+    --error-color             : #E74C3C;
+
+    /* colors */
+    --white-solid             : #FFFFFF;
+    --white-gallery           : #F0F0F0;
+    --gray-athens             : #F9FAFB;
+    --gray-boulder            : #777777;
+    --blue-curious            : #3498DB;
+
+    /* borders */
+    --black-transparent       : rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -11,7 +21,7 @@
 }
 
 body {
-    background-color          : #f9fafb;
+    background-color          : var(--gray-athens);
     font-family               : 'Open Sans', sans-serif;
     display                   : flex;
     align-items               : center;
@@ -21,9 +31,9 @@ body {
 }
 
 .container {
-    background-color          : #fff;
+    background-color          : var(--white-solid);
     border-radius             : 5px;
-    box-shadow                : 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow                : 0 2px 10px var(black-transparent);
     width                     : 400px;
 }
 
@@ -43,13 +53,13 @@ h2 {
 }
 
 .form-control label {
-    color                     : #777;
+    color                     : var(--gray-boulder);
     display                   : block;
     margin-bottom             : 5px;
 }
 
 .form-control input {
-    border                    : 2px solid #f0f0f0;
+    border                    : 2px solid var(--white-gallery);
     border-radius             : 4px;
     display                   : block;
     width                     : 100%;
@@ -57,9 +67,9 @@ h2 {
     font-size                 : 14px;
 }
 
-.form-control input:focus {
+.form-control input           : focus {
     outline                   : 0;
-    border-color              : #777;
+    border-color              : var(--gray-boulder);
 }
 
 .form-control.success input {
@@ -84,10 +94,10 @@ h2 {
 
 .form button {
     cursor                    : pointer;
-    background-color          : #3498db;
-    border                    : 2px solid #3498db;
+    background-color          : var(--blue-curious);
+    border                    : 2px solid var(--blue-curious);
     border-radius             : 4px;
-    color                     : #fff;
+    color                     : var(--white-solid);
     display                   : block;
     font-size                 : 16px;
     padding                   : 10px;

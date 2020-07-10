@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
 
+:root {
+    --gray-dove                : #666666;
+    --gray-mine-shaft          : #333333;
+    --white-solid              : #FFFFFF;
+    --black-solid              : #000000;
+    --green-eucalyptus         : #28A745;
+    --red-punch                : #DC3545;
+
+}
 * {
     box-sizing                 : border-box;
 }
@@ -10,26 +19,26 @@ body {
     flex-direction             : column;
     align-items                : center;
     justify-content            : center;
-    background-color           : #666;
+    background-color           : var(--gray-dove);
     max-height                 : 100vh;
     margin                     : 0
 }
 
 h1 {
-    color                      : #FFFFFF;
+    color                      : var(--white-solid);
 }
 
 .screen {
     cursor                     : pointer;
     width                      : 50%;
-    background-color           : #000 !important;
+    background-color           : var(--black-solid) !important;
     border-top-left-radius     : 10px;
     border-top-right-radius    : 10px;
 }
 
 .controls {
-    background                 : #333;
-    color                      : #FFF;
+    background                 : var(--gray-mine-shaft);
+    color                      : var(--white-solid);
     width                      : 50%;
     border-bottom-left-radius  : 10px;
     border-bottom-right-radius : 10px;
@@ -46,28 +55,28 @@ h1 {
 }
 
 .controls .fa-play {
-    color                      : #28A745;
+    color                      : var(--green-eucalyptus);
 }
 
 .controls .fa-stop {
-    color                      : #DC3545;
+    color                      : var(--red-punch);
 }
 
 .controls .fa-pause {
-    color                      : #FFF;
+    color                      : var(--white-solid);
 }
 
 .controls .timestamp {
-    color                      : #FFF;
+    color                      : var(--white-solid);
     font-weight                : bold;
     margin-left                : 10px;
 }
 
-.btn:focus {
+.btn                           : focus {
     outline                    : 0;
 }
 
-@media (max-wdith              : 800px) {
+@media (max-wdith: 800px) {
     .screen,
     .controls {
         width                  : 90%;

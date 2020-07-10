@@ -1,5 +1,5 @@
 :root {
-    --white                      : #FFFFFF;
+    --white-solid                : #FFFFFF;
     --bluewood-background        : #34495E;
     --blue-marine                : #2980B9;
 
@@ -7,7 +7,6 @@
     --border-blue                : 3px solid var(--blue-marine);
     --transparent                : rgba(0, 0, 0, 0.3);
     --transparent-background-2   : rgba(0, 0, 0, 0.1);
-
 }
 
 * {
@@ -16,7 +15,7 @@
 
 body {
     background-color             : var(--bluewood-background);
-    color                        : var(--white);
+    color                        : var(--white-solid);
     font-family                  : Arial, Helvetica, sans-serif;
     display                      : flex;
     flex-direction               : column;
@@ -40,7 +39,7 @@ h1 {
 
 .figure-container {
     fill                         : transparent;
-    stroke                       : var(--white);
+    stroke                       : var(--white-solid);
     stroke-width                 : 4px;
     stroke-linecap               : round;
 }
@@ -110,7 +109,7 @@ h1 {
 
 .popup button {
     cursor                       : pointer;
-    background-color             : var(--white);
+    background-color             : var(--white-solid);
     color                        : var(--blue-marine);
     border                       : 0;
     margin-top                   : 20px;

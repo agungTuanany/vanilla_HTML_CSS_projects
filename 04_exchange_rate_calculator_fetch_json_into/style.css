@@ -1,7 +1,7 @@
 :root {
     --primary-color     : #5FBAA7;
     --white-smoke       : #f4f4f4;
-    --white             : #FFFFFF
+    --white-solid       : #FFFFFF;
     --gray-grainsbrow   : #DEDEDE;
 }
 
@@ -30,7 +30,7 @@ p {
 }
 
 .btn {
-    color               : var(--white);
+    color               : var(--white-solid);
     background          : var(--primary-color);
     cursor              : pointer;
     border-radius       : 5px;

@@ -1,77 +1,77 @@
 :root {
-    --white-gray    : #F4F4F4;
-    --white         : #FFFFFF;
-    --border        : 1px solid #111111;
+    --white-wild-sand : #F4F4F4;
+    --white-solid     : #FFFFFF;
+    --border          : 1px solid #111111;
 }
 
 * {
-    box-sizing      : border-box;
+    box-sizing        : border-box;
 }
 
 body {
-    background      : var(--white-gray);
-    font-family     : Arial, Helvetica, sans-serif;
-    display         : flex;
-    flex-direction  : column;
-    align-items     : center;
-    min-height      : 100vh;
-    margin          : 0;
+    background        : var(--white-wild-sand);
+    font-family       : Arial, Helvetica, sans-serif;
+    display           : flex;
+    flex-direction    : column;
+    align-items       : center;
+    min-height        : 100vh;
+    margin            : 0;
 }
 
 .container {
-    display         : flex;
-    padding         : 20px;
-    margin          : 0 auto;
-    max-width       : 100%;
-    width           : 800px;
+    display           : flex;
+    padding           : 20px;
+    margin            : 0 auto;
+    max-width         : 100%;
+    width             : 800px;
 }
 
 aside {
-    padding         : 10px 20px;
-    width           : 250px;
-    border-right    : var(--border);
+    padding           : 10px 20px;
+    width             : 250px;
+    border-right      : var(--border);
 }
 
 button {
-    cursor          : pointer;
-    background      : var(--white);
-    border          : var(--border);
-    border-radius   : 5px;
-    display         : block;
-    width           : 100%;
-    padding         : 10px;
-    margin-bottom   : 20px;
-    font-size       : 14px;
-    font-weight     : bold;
+    cursor            : pointer;
+    background        : var(--white-solid);
+    border            : var(--border);
+    border-radius     : 5px;
+    display           : block;
+    width             : 100%;
+    padding           : 10px;
+    margin-bottom     : 20px;
+    font-size         : 14px;
+    font-weight       : bold;
 }
 
 main {
-    flex            : 1;
-    padding         : 10px 20px;
+    flex              : 1;
+    padding           : 10px 20px;
 }
 
 h2 {
-    border-bottom   : var(--border);
-    padding-bottom  : 10px;
-    display         : flex;
-    justify-content : space-between;
-    font-weight     : 300;
-    margin          : 0 0 20px 0;
+    border-bottom     : var(--border);
+    padding-bottom    : 10px;
+    display           : flex;
+    justify-content   : space-between;
+    font-weight       : 300;
+    margin            : 0 0 20px 0;
 }
 
 h3 {
-    background      : var(--white);
-    border-top      : var(--border);
-    padding         : 10px;
-    display         : flex;
-    justify-content : space-between;
-    font-weight     : 300;
-    margin          : 20px 0 0 0;
+    background        : var(--white-solid);
+    border-top        : var(--border);
+    padding           : 10px;
+    display           : flex;
+    justify-content   : space-between;
+    font-weight       : 300;
+    margin            : 20px 0 0 0;
 }
 
 .person {
-    display         : flex;
-    justify-content : space-between;
-    font-size       : 20px;
-    margin-bottom   : 10px;
+    display           : flex;
+    justify-content   : space-between;
+    font-size         : 20px;
+    margin-bottom     : 10px;
 }
