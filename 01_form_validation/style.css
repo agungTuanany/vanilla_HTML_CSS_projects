@@ -67,7 +67,7 @@ h2 {
     font-size                 : 14px;
 }
 
-.form-control input           : focus {
+.form-control input:focus {
     outline                   : 0;
     border-color              : var(--gray-boulder);
 }
