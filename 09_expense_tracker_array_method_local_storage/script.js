@@ -11,15 +11,15 @@ const dummyTransactions = [
     {id: 1, text: "Flower", amount: -20},
     {id: 2, text: "Salary", amount: 300},
     {id: 3, text: "Book", amount: -10},
-    {id: 4, text: "Hair cut", amount: -15},
+    {id: 4, text: "Hair cut", amount: -20},
 ]
 
-let transaction = dummyTransactions
+let transactions = dummyTransactions
 
 
 // Add transaction to DOM list
 function addTransactionDOM(transaction) {
-     // Get sign
+    // Get sign
     const sign = transaction.amount < 0 ? "-" : "+"
     const item = document.createElement("li")
 
@@ -33,11 +33,38 @@ function addTransactionDOM(transaction) {
     list.appendChild(item)
 }
 
+// Update the balance, income and expense
+function updateValues() {
+    // XXX Blueprint using high-order array method in real situation XXX
+    const amounts = transactions.map(transaction => transaction.amount)
+
+    const income = amounts
+        .filter(item => item > 0)
+        .reduce((acc, item) => (acc += item), 0)
+        .toFixed(2)
+
+    const expense =
+        (amounts
+            .filter(item => item < 0)
+            .reduce((acc, item) => (acc += item), 0) * -1
+        ).toFixed(2)
+
+    const total = amounts.reduce((acc, item) => (acc += item), 0)
+        .toFixed(2)
+
+    // console.log (expense)
+
+    balance.innerText     = `IDR ${total}`
+    money_plus.innerText  = `IDR ${income}`
+    money_minus.innerText = `IDR ${expense}`
+}
+
 // Init asap
 function init() {
     list.innerHTML = ""
 
-    transaction.forEach(addTransactionDOM)
+    transactions.forEach(addTransactionDOM)
+    updateValues()
 }
 
 
