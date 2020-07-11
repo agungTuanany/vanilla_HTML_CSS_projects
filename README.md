@@ -20,8 +20,9 @@ various but the standard will be the same in scaling Web development.
 # License
 ![lat MIT LICENSE](/image/MIT.gif)
 
-This code project is licensed under MIT Licence see the [LICENCSE.md](LICENCSE.md)
-file for details
+This code project is licensed under MIT Licence see the
+[LICENCSE.md](LICENSE.md) file for details
 
-# Akcnoledgment
+
+# Acknowledgment
 [Brad Travesry](https://github.com/bradtraversy)
