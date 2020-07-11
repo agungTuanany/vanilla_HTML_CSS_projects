@@ -6,14 +6,19 @@ const form = document.getElementById("form")
 const text = document.getElementById("text")
 const amount = document.getElementById("amount")
 
-const dummyTransactions = [
-    {id: 1, text: "Flower", amount: -20},
-    {id: 2, text: "Salary", amount: 300},
-    {id: 3, text: "Book", amount: -10},
-    {id: 4, text: "Hair cut", amount: -20},
-]
+// const dummyTransactions = [
+//     {id: 1, text: "Flower", amount: -20},
+//     {id: 2, text: "Salary", amount: 300},
+//     {id: 3, text: "Book", amount: -10},
+//     {id: 4, text: "Hair cut", amount: -20},
+// ]
 
-let transactions = dummyTransactions
+// let transactions = dummyTransactions
+
+const localStorageTransactions = JSON.parse(localStorage.getItem("transaction"))
+
+let transactions = localStorage.getItem("transaction") !== null ? localStorageTransactions : []
+
 
 // Add transaction to DOM list
 function addTransactionDOM(transaction) {
@@ -82,8 +87,10 @@ function addTransactionListener(event) {
 
     updateValues()
 
+    updateLocalStorage()
+
     text.value = ""
-    amout.value = ""
+    amount.value = ""
 }
 
 // Generate random ID
@@ -96,7 +103,13 @@ function generateID() {
 function removeTransaction(id) {
     transactions = transactions.filter(transaction => transaction.id !== id)
 
+    updateLocalStorage()
     init()
+}
+
+// Update local storage transactions
+function updateLocalStorage() {
+    localStorage.setItem("transaction", JSON.stringify(transactions))
 }
 
 
@@ -110,7 +123,5 @@ function init() {
 
 // Event Listener
 form.addEventListener("submit", addTransactionListener)
-
-
 
 init()
