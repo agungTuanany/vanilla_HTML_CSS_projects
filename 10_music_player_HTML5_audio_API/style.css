@@ -5,12 +5,14 @@
     --white-solid                          : #FFFFFF;
     --gray-bon-jour                        : #DFDBDF;
     --gray-chatele                         : #CDC2D0;
+    --pink-salmon                          : #FE8DAA;
 
 
 
     /* Miscellaneous */
     --box-shadow                           : 0 20px 20px 0 rgba(252, 169, 169, 0.6);
     --linear-gradient                      : linear-gradient(0deg, rgba(247, 247, 247, 1) 23.8%, rgba(252, 221, 221, 1) 92%);
+    --music-info-background                : rgba(255, 255, 255, 0.5);
 
 }
 
@@ -43,6 +45,18 @@ body {
 .img-container {
     position                               : relative;
     width                                  : 110px;
+}
+
+.img-container::after {
+    content                                : "";
+    background-color                       : var(--white-solid);
+    border-radius                          : 50%;
+    position                               : absolute;
+    bottom                                 : 100%;
+    left                                   : 50%;
+    width                                  : 20px;
+    height                                 : 20px;
+    transform                              : translate(-50%, 50%);
 }
 
 .img-container img {
@@ -84,13 +98,51 @@ body {
     font-size                              : 30px;
 }
 
-
 .action-btn:focus {
     outline                                : 0;
 }
 
+.music-info {
+    background-color                       : var(--music-info-background);
+    border-radius                          : 15px 15px 0 0;
+    position                               : absolute;
+    top                                    : 0;
+    left                                   : 20px;
+    width                                  : calc(100% - 40px);
+    padding                                : 10px 10px 150px 0;
+    transform                              : translateY(0%);
+    /* will be show when there's .play */
+    opacity                                : 0;
+    transition                             : transform 0.3 ease-in opacity 0.3s ease-in;
+    z-index                                : 0;
+}
+
+.music-container.play .music-info {
+    opacity                                : 1;
+    transform                              : translateY(-100%)
+}
+
+.music-info h4 {
+    margin                                 : 0;
+}
 
 
+.progress-container {
+    background                             : var(--white-solid);
+    border-radius                          : 5px;
+    cursor                                 : pointer;
+    margin                                 : 10px 0;
+    height                                 : 4px;
+    width                                  : 100%;
+}
+
+.progress {
+    background-color                       : var(--pink-salmon);
+    border-radius                          : 5px;
+    height                                 : 100%;
+    width                                  : 0%;
+    transition                             : width                                                                            : 0.1s linear;
+}
 
 
 
