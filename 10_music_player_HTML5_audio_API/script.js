@@ -10,27 +10,22 @@ const title             = document.getElementById("title")
 const cover             = document.getElementById("cover")
 
 // Song titles
-const songs = ["Jazzinuf_Be_Mine", "Paradise_broey", "NTR_MND_decision" ]
+const songs = ["Jazzinuf_Be_Mine", "Paradise_broey", "NTR_MND_decision"]
 
-// Keep track of songs
-let songIndex = 1
+// Keep track of song
+let songIndex = 2
 
 // Initially load song details into DOM
 loadSong(songs[songIndex])
 
-
 // Update song details
 function loadSong(song) {
     title.innerText = song
-    audio.innerText = `music/${song}.mp3`
-    cover.innerText = `img/${song}.jpg`
-
-    console.log (cover)
-    console.log (cover.innerText = `img/${song}.jpg`)
+    audio.src = `music/${song}.mp3`
+    cover.src = `img/${song}.jpg`
 }
 
-
-// play song
+// Play song
 function playSong() {
     musicContainer.classList.add("play")
     playBtn.querySelector("i.fas").classList.remove("fa-play")
@@ -48,21 +43,70 @@ function pauseSong() {
     audio.pause()
 }
 
+// Previous song
+function prevSong() {
+    songIndex--
 
-// Play music
+    if (songIndex < 0) {
+        songIndex = songs.length - 1
+    }
+
+    loadSong(songs[songIndex])
+
+    playSong()
+}
+
+// Next song
+function nextSong() {
+    songIndex++
+
+    if (songIndex > songs.length - 1) {
+        songIndex = 0
+    }
+
+    loadSong(songs[songIndex])
+
+    playSong()
+}
+
+// Update progress bar
+function updateProgress(e) {
+    const { duration, currentTime } = e.srcElement
+    const progressPercent = (currentTime / duration) * 100
+    progress.style.width = `${progressPercent}%`
+}
+
+// Set progress bar
+function setProgress(e) {
+    const width = this.clientWidth
+    const clickX = e.offsetX
+    const duration = audio.duration
+
+    audio.currentTime = (clickX / width) * duration
+}
+
 function playMusic() {
-    const isPlaying = musicContainer.classList.contains("play")
+    const isPlaying = musicContainer.classList.contains('play')
 
     if (isPlaying) {
         pauseSong()
-    }
-    else {
+    } else {
         playSong()
     }
 }
 
+// Event listeners
+playBtn.addEventListener('click',playMusic)
 
-// Event Listener
-playBtn.addEventListener("click", playMusic)
+// Change song
+prevBtn.addEventListener("click", prevSong)
+nextBtn.addEventListener("click", nextSong)
 
+// Time/song update
+audio.addEventListener("timeupdate", updateProgress)
 
+// Click on progress bar
+progressContainer.addEventListener("click", setProgress)
+
+// Song ends
+audio.addEventListener("ended", nextSong)
