@@ -109,23 +109,22 @@ body {
     top                                    : 0;
     left                                   : 20px;
     width                                  : calc(100% - 40px);
-    padding                                : 10px 10px 150px 0;
+    padding                                : 10px 10px 10px 150px;
     transform                              : translateY(0%);
     /* will be show when there's .play */
     opacity                                : 0;
-    transition                             : transform 0.3 ease-in opacity 0.3s ease-in;
+    transition                             : transform 0.3s ease-in, opacity 0.3s ease-in;
     z-index                                : 0;
 }
 
 .music-container.play .music-info {
     opacity                                : 1;
-    transform                              : translateY(-100%)
+    transform                              : translateY(-100%);
 }
 
 .music-info h4 {
     margin                                 : 0;
 }
-
 
 .progress-container {
     background                             : var(--white-solid);
@@ -141,7 +140,7 @@ body {
     border-radius                          : 5px;
     height                                 : 100%;
     width                                  : 0%;
-    transition                             : width                                                                            : 0.1s linear;
+    transition                             : width 0.1s linear;
 }
 
 
@@ -149,7 +148,7 @@ body {
 
 @keyframes rotate {
     from {
-        transform: (0deg);
+        transform: rotate(0deg);
     }
 
     to {
