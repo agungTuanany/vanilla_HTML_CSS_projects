@@ -1,11 +1,11 @@
 // DOM element
 const postsContainer = document.getElementById("posts-container")
 const loading        = document.querySelector(".loader")
-const filter         = document.getElementById("filer")
+const filter         = document.getElementById("filter")
 
 
 // Global variables
-let limit = 3;
+let limit = 4;
 let page = 1;
 
 
@@ -37,8 +37,39 @@ async function showPost() {
     })
 }
 
+// Show loader & fetch more posts
+function showLoading() {
+    loading.classList.add("show")
+
+    setTimeout(() => {
+        loading.classList.remove("show")
+
+        // Show new post by increment page
+        setTimeout(() => {
+            page++
+            showPost()
+        }, 300)
+
+    }, 1000)
+}
+
+// Infinite scroll
+function infiniteScroll() {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement
+
+    if (scrollTop + clientHeight >= scrollHeight - 3) {
+        // console.log ("you on bottom limit to scroll")
+
+        showLoading()
+    }
+
+}
+
 // Show initial Posts
 showPost()
+
+// Event listener
+window.addEventListener("scroll", infiniteScroll)
 
 
 
