@@ -6,11 +6,11 @@ const filter         = document.getElementById("filter")
 
 // Global variables
 let limit = 4;
-let page = 1;
+let page  = 1;
 
 
 async function getPosts() {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`)
+    const res  = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit = ${limit}&_page = ${page}`)
     const data = await res.json()
 
     return data
@@ -62,7 +62,24 @@ function infiniteScroll() {
 
         showLoading()
     }
+}
 
+// Filter posts
+function filterPosts(event) {
+    const term  = event.target.value.toUpperCase()
+    const posts = document.querySelectorAll(".post")
+
+    posts.forEach(post => {
+        const title = post.querySelector(".post-title").innerText.toUpperCase()
+        const body = post.querySelector(".post-body").innerText.toUpperCase()
+
+        if(title.indexOf(term) > -1 || body.indexOf(term) > -1) {
+            post.style.display = "flex"
+        }
+        else {
+            post.style.display = "none"
+        }
+    })
 }
 
 // Show initial Posts
@@ -70,6 +87,7 @@ showPost()
 
 // Event listener
 window.addEventListener("scroll", infiniteScroll)
+filter.addEventListener("input", filterPosts)
 
 
 
