@@ -86,7 +86,7 @@ function setProgress(e) {
 }
 
 function playMusic() {
-    const isPlaying = musicContainer.classList.contains('play')
+    const isPlaying = musicContainer.classList.contains("play")
 
     if (isPlaying) {
         pauseSong()
@@ -96,7 +96,7 @@ function playMusic() {
 }
 
 // Event listeners
-playBtn.addEventListener('click',playMusic)
+playBtn.addEventListener("click",playMusic)
 
 // Change song
 prevBtn.addEventListener("click", prevSong)
