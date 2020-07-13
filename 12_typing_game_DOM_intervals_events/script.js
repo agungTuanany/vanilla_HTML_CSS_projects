@@ -2,8 +2,8 @@
 const word            = document.getElementById("word")
 const text            = document.getElementById("text")
 const scoreElement    = document.getElementById("score")
-const timeElelemnt    = document.getElementById("time")
-const endGameElement  = document.getElementById("end-game")
+const timeElement     = document.getElementById("time")
+const endGameElement  = document.getElementById("end-game-container")
 const settingBtn      = document.getElementById("settings-btn")
 const settings        = document.getElementById("settings")
 const settingForm     = document.getElementById("setting-form")
@@ -16,6 +16,11 @@ let score = 0
 // Init time
 let time = 10
 
+// Focus on text on start
+text.focus()
+
+// Start counting down
+const timeInterval = setInterval(updateTime, 1000)
 
 // Fetch words from API
 async function fetchRandomWords() {
@@ -48,18 +53,44 @@ function updateScore() {
     scoreElement.innerHTML = score
 }
 
-
+// Text input event listener
 function textInput(event) {
     const insertedText = event.target.value
 
     if (insertedText === randomWord) {
         addWordToDOM()
-
         updateScore()
 
         // Clear
         event.target.value = ""
+        time += 3
+        updateTime()
     }
+}
+
+// Update time
+function updateTime() {
+    // Decreased by 1
+    time--;
+    timeElement.innerHTML = time + "s"
+
+    if (time == 0) {
+        clearInterval(timeInterval)
+
+        // End game
+        gameOver()
+    }
+}
+
+// Game over, show end screen
+function gameOver() {
+    endGameElement.innerHTML = `
+        <h1>Time ran out</h1>
+        <p>your final score is:<b> ${score}</b></p>
+        <button onclick="location.reload()">Reload</button>
+    `;
+
+    endGameElement.style.display = "flex"
 }
 
 // Init functions
