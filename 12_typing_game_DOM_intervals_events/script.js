@@ -1,13 +1,13 @@
 // Bring DOM element
-const word            = document.getElementById("word")
-const text            = document.getElementById("text")
-const scoreElement    = document.getElementById("score")
-const timeElement     = document.getElementById("time")
-const endGameElement  = document.getElementById("end-game-container")
-const settingBtn      = document.getElementById("settings-btn")
-const settings        = document.getElementById("settings")
-const settingForm     = document.getElementById("setting-form")
-const diffcultySelect = document.getElementById("difficulty")
+const word             = document.getElementById("word")
+const text             = document.getElementById("text")
+const scoreElement     = document.getElementById("score")
+const timeElement      = document.getElementById("time")
+const endGameElement   = document.getElementById("end-game-container")
+const settingBtn       = document.getElementById("settings-btn")
+const settings         = document.getElementById("settings")
+const settingForm      = document.getElementById("settings-form")
+const difficultySelect = document.getElementById("difficulty")
 
 // Init word
 let randomWord = null
@@ -15,6 +15,12 @@ let randomWord = null
 let score = 0
 // Init time
 let time = 10
+
+// Init difficulty and set to local Storage
+let difficulty = localStorage.getItem("difficulty") !== null ? localStorage.getItem("difficulty") : "medium"
+
+// Set difficulty selected value
+difficultySelect.value = localStorage.getItem("difficulty") !== null ? localStorage.getItem("difficulty") : "medium"
 
 // Focus on text on start
 text.focus()
@@ -30,8 +36,8 @@ async function fetchRandomWords() {
     return data[0]
 }
 
-// XXX NOT USE THIS CAUSE FROM FETCH I GET RANDOMIZE WORD XXX
 // XXX JUST KEEP FOR SIDE NOTE XXX
+// XXX NOT USE THIS CAUSE FROM fetch() I GET RANDOM WORDS XXX
 // // Generate random word form API
 // async function getRandomWord() {
 //     const words = await fetchRandomWords()
@@ -53,25 +59,10 @@ function updateScore() {
     scoreElement.innerHTML = score
 }
 
-// Text input event listener
-function textInput(event) {
-    const insertedText = event.target.value
-
-    if (insertedText === randomWord) {
-        addWordToDOM()
-        updateScore()
-
-        // Clear
-        event.target.value = ""
-        time += 3
-        updateTime()
-    }
-}
-
 // Update time
 function updateTime() {
     // Decreased by 1
-    time--;
+    time--
     timeElement.innerHTML = time + "s"
 
     if (time == 0) {
@@ -93,9 +84,50 @@ function gameOver() {
     endGameElement.style.display = "flex"
 }
 
+// Text input event listener
+function textInput(event) {
+    const insertedText = event.target.value
+
+    if (insertedText === randomWord) {
+        addWordToDOM()
+        updateScore()
+
+        // Clear
+        event.target.value = ""
+
+        // Implement difficulty
+        if (difficulty === "hard") {
+            time += 3
+        }
+        else if (difficulty === "medium") {
+            time += 4
+        }
+        else {
+            time += 5
+        }
+
+        updateTime()
+    }
+}
+
+// Setting button listener
+function settingBtnListener() {
+    settings.classList.toggle("hide")
+}
+
+function settingFormListener(event) {
+    difficulty =  event.target.value
+    localStorage.setItem("difficulty", difficulty)
+    console.log (difficulty)
+}
+
 // Init functions
 addWordToDOM()
 
 // Event Listeners
+// typing
 text.addEventListener("input", textInput)
-
+// Setting button click
+settingBtn.addEventListener("click", settingBtnListener)
+// Setting select
+settingForm.addEventListener("change", settingFormListener)
