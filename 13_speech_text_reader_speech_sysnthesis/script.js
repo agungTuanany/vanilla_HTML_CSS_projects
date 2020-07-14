@@ -30,7 +30,7 @@ const data = [
     },
     {
         image: "./img/hurt.jpg",
-        text: "I,m Hurt"
+        text: "I'm Hurt"
     },
     {
         image: "./img/outside.jpg",
