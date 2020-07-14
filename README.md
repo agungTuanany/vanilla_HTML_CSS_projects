@@ -1,4 +1,4 @@
-# What about?
+# What about ?
 This is a [Brad Travesry](https://github.com/bradtraversy) course from
 [udemy](https://www.udemy.com/course/web-projects-with-vanilla-javascript/).
 

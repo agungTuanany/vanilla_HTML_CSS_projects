@@ -118,7 +118,6 @@ function settingBtnListener() {
 function settingFormListener(event) {
     difficulty =  event.target.value
     localStorage.setItem("difficulty", difficulty)
-    console.log (difficulty)
 }
 
 // Init functions
@@ -129,5 +128,5 @@ addWordToDOM()
 text.addEventListener("input", textInput)
 // Setting button click
 settingBtn.addEventListener("click", settingBtnListener)
-// Setting select
+// Setting select difficulty
 settingForm.addEventListener("change", settingFormListener)
