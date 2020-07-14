@@ -1,0 +1,11 @@
+:root {
+    --blue-pickled-bluewood : #2C3E50;
+}
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: var(--blue-pickled-bluewood);
+}
