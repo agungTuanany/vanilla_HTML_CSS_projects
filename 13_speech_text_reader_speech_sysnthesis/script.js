@@ -1,10 +1,10 @@
 // DOM element
-const main        = document.querySelector("main")
-const voiceSelect = document.getElementById("voices")
-const textarea    = document.getElementById("text")
-const readBtn     = document.getElementById("read")
-const toggleBtn   = document.getElementById("toggle")
-const closeBtn    = document.getElementById("close")
+const main         = document.querySelector("main")
+const voicesSelect = document.getElementById("voices")
+const textarea     = document.getElementById("text")
+const readBtn      = document.getElementById("read")
+const toggleBtn    = document.getElementById("toggle")
+const closeBtn     = document.getElementById("close")
 
 
 const data = [
@@ -60,7 +60,7 @@ data.forEach(createBox)
 function createBox(item) {
     const box = document.createElement("div")
 
-    const { image, text } = item;
+    const { image, text } = item
 
     box.classList.add("box")
     box.innerHTML = `
@@ -72,3 +72,47 @@ function createBox(item) {
 
     main.appendChild(box)
 }
+// Store voices
+let voices = []
+
+
+function getVoicesList() {
+    /// @FIXME: voices still an empty array
+  voices = speechSynthesis.getVoices()
+
+  voices.forEach(voice => {
+    const option = document.createElement('option')
+
+    option.value = voice.name
+    option.innerText = `${voice.name} ${voice.lang}`
+
+    voicesSelect.appendChild(option)
+  });
+}
+
+
+// Toggle text button listener
+function toggleTextOnClick() {
+    document.getElementById("text-box").classList.toggle("show")
+}
+
+// Close button listener
+function toggleCloseBtnOnClick() {
+    document.getElementById("text-box").classList.remove("show")
+}
+
+
+// Event Listener
+toggleBtn.addEventListener("click", toggleTextOnClick)
+closeBtn.addEventListener("click", toggleCloseBtnOnClick)
+
+// Voices changed
+speechSynthesis.addEventListener('voiceschanged', getVoicesList)
+
+// Init functions
+getVoicesList
+/// @NOTE: speechSynthesis is still an empty array
+if (speechSynthesis.onvoiceschanged !== 0) {
+    speechSynthesis.onvoiceschanged = getVoicesList()
+}
+

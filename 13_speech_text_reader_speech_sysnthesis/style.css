@@ -64,7 +64,11 @@ select:focus {
     color                   : var(--white-solid);
     padding                 : 20px;
     border-radius           : 5px;
-    transition              : all 1s ease-in-out;
+    transition              : all 1.2s ease-in-out;
+}
+
+.text-box.show {
+    transform               : translate(-50%, 0);
 }
 
 .text-box select {
@@ -137,19 +141,19 @@ main {
 
 
 @media (max-width: 1100px) {
-  main {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    main {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media (max-width: 760px) {
-  main {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 500px) {
-  main {
-    grid-template-columns: 1fr;
-  }
+    main {
+        grid-template-columns: 1fr;
+    }
 }
