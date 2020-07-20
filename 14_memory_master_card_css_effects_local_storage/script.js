@@ -19,20 +19,23 @@ let currentActiveCard = 0
 const cardsElement = []
 
 // Store card data
-const cardsData = [
-    {
-        question : "What must a variabe begin with ?",
-        answer   : "A letter, $ or _"
-    },
-    {
-        question : "What is a variable ?",
-        answer   : "Container for a piece of data"
-    },
-    {
-        question : "Example of Case Sensitive Variable",
-        answer   : "thisIsAVariable"
-    }
-]
+const cardsData = getCardsData()
+
+
+// const cardsData = [
+//     {
+//         question : "What must a variabe begin with ?",
+//         answer   : "A letter, $ or _"
+//     },
+//     {
+//         question : "What is a variable ?",
+//         answer   : "Container for a piece of data"
+//     },
+//     {
+//         question : "Example of Case Sensitive Variable",
+//         answer   : "thisIsAVariable"
+//     }
+// ]
 
 // Create all cards
 const createCards = () => {
@@ -108,12 +111,70 @@ const prevBtnOnClick = () => {
     updateCurrentText()
 }
 
+// Show add container event
+const showBtnOnClick = () => addContainer.classList.add("show")
+
+// Hide add container evemt
+const hideBtnOnClick = () => addContainer.classList.remove("show")
+
+// Add card button event
+const addCardBtnOnClick = () => {
+    const question = questionElement.value
+    const answer   = answerElement.value
+
+    // console.log(question, answer)
+
+    if (question.trim() && answer.trim()) {
+        const newCard = { question, answer }
+
+        createCard(newCard)
+
+        questionElement.value = ""
+        answerElement.value = ""
+
+        addContainer.classList.remove("show")
+
+        cardsData.push(newCard)
+        setCardsData(cardsData)
+    }
+
+}
+
+// Clear card button
+const clearBtnOnClick = () => {
+    localStorage.clear()
+    cardContainer.innerHTML = ""
+
+    window.location.reload()
+}
+
+// Get cards from local storage
+function getCardsData() {
+    const cards = JSON.parse(localStorage.getItem("cards"))
+
+    return cards === null ? [] : cards
+}
+
+// Add card to local storage
+function setCardsData(cards) {
+    localStorage.setItem("cards", JSON.stringify(cards))
+
+    window.location.reload()
+}
+
+
+
+
 
 createCards()
 
 // event Listener
 nextBtn.addEventListener("click", nextBtnOnClick)
 prevBtn.addEventListener("click", prevBtnOnClick)
+showBtn.addEventListener("click", showBtnOnClick)
+hideBtn.addEventListener("click", hideBtnOnClick)
+addCardBtn.addEventListener("click", addCardBtnOnClick)
+clearBtn.addEventListener("click", clearBtnOnClick)
 
 
 /*
