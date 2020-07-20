@@ -84,6 +84,35 @@ const showData = data => {
     }
 }
 
+// Get lyrics button click event
+const resultOnClick = event => {
+    // console.log(event.target)
+
+    const clickedElement = event.target
+
+    if (clickedElement.tagName === "BUTTON") {
+        const artist = clickedElement.getAttribute("data-artist")
+        const songTitle = clickedElement.getAttribute("data-songTitle")
+
+        getLyrics(artist, songTitle)
+
+    }
+}
+
+// Get lyrics for song
+async function getLyrics(artist, songTitle) {
+    const res =await fetch(`${apiURL}/v1/${artist}/${songTitle}`)
+    const data = await res.json()
+
+    const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, "<br>")
+
+    result.innerHTML = `<h2><strong>${artist}</strong> - ${songTitle}</h2>
+        <span>${lyrics}</span>
+    `;
+
+    more.innerHTML = ""
+}
+
 // Get prev and next songs
 async function getMoreSongs(url) {
     /// Prevent to CORS error
@@ -106,4 +135,5 @@ renderItem()
 
 // event listener
 form.addEventListener("submit", formOnSubmit)
+result.addEventListener("click", resultOnClick)
 
