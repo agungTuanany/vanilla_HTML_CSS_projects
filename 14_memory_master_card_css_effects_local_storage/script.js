@@ -78,9 +78,53 @@ const updateCurrentText = () => {
 }
 
 
+// nextBtn event
+const nextBtnOnClick = () => {
+    cardsElement[currentActiveCard].className = "card left"
+
+    currentActiveCard = currentActiveCard + 1
+
+    if (currentActiveCard > cardsElement.length - 1) {
+        currentActiveCard = cardsElement.length - 1
+    }
+
+    cardsElement[currentActiveCard].className = "card active"
+
+    updateCurrentText()
+}
+
+// prevBtn event
+const prevBtnOnClick = () => {
+    cardsElement[currentActiveCard].className = "card right"
+
+    currentActiveCard = currentActiveCard - 1
+
+    if (currentActiveCard < 0) {
+        currentActiveCard = 0
+    }
+
+    cardsElement[currentActiveCard].className = "card active"
+
+    updateCurrentText()
+}
+
 
 createCards()
 
+// event Listener
+nextBtn.addEventListener("click", nextBtnOnClick)
+prevBtn.addEventListener("click", prevBtnOnClick)
 
+
+/*
+ * XXX Explanatory:
+ *
+ * The different using between "clasList" with "className" is:
+ * classList add the calls to what's already there
+ * className overwriting to what's already there
+ *
+ * XXX
+ *
+ */
 
 
