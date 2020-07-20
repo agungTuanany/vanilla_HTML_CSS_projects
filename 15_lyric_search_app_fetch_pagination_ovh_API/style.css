@@ -1,0 +1,58 @@
+:root {
+    --white-solid   : #FFFFFF;
+
+    --background-transparency: rgba(0, 0, 0, 0.4);
+
+}
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--white-solid);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.95)
+}
+
+input:focus,
+button:focus {
+    outline: none;
+}
+
+header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: var(--white-solid);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+    position: relative;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--background-transparency);
+}
+
+header * {
+    z-index: 1;
+}
+
+header h1 {
+    margin: 0 0 30px 0;
+}
