@@ -9,48 +9,48 @@ const closeBtn     = document.getElementById("close")
 
 const data = [
     {
-        image: "./img/angry.jpg",
-        text: "I'm Angry"
+        image : "./img/angry.jpg",
+        text  : "I'm Angry"
     },
     {
-        image: "./img/drink.jpg",
-        text: "I'm Thirty"
+        image : "./img/drink.jpg",
+        text  : "I'm Thirty"
     },
     {
-        image: "./img/grandma.jpg",
-        text: "I Want Go TO Grandmas"
+        image : "./img/grandma.jpg",
+        text  : "I Want Go TO Grandmas"
     },
     {
-        image: "./img/happy.jpg",
-        text: "I'm Happy"
+        image : "./img/happy.jpg",
+        text  : "I'm Happy"
     },
     {
-        image: "./img/home.jpg",
-        text: "I Want To Go Home"
+        image : "./img/home.jpg",
+        text  : "I Want To Go Home"
     },
     {
-        image: "./img/hurt.jpg",
-        text: "I'm Hurt"
+        image : "./img/hurt.jpg",
+        text  : "I'm Hurt"
     },
     {
-        image: "./img/outside.jpg",
-        text: "I Want Go Outside"
+        image : "./img/outside.jpg",
+        text  : "I Want Go Outside"
     },
     {
-        image: "./img/sad.jpg",
-        text: "I'm Sad"
+        image : "./img/sad.jpg",
+        text  : "I'm Sad"
     },
     {
-        image: "./img/school.jpg",
-        text: "I Want To Go To School"
+        image : "./img/school.jpg",
+        text  : "I Want To Go To School"
     },
     {
-        image: "./img/scared.jpg",
-        text: "I'm Scared"
+        image : "./img/scared.jpg",
+        text  : "I'm Scared"
     },
     {
-        image: "./img/tired.jpg",
-        text: "I'm Tired"
+        image : "./img/tired.jpg",
+        text  : "I'm Tired"
     }
 ]
 
@@ -77,7 +77,7 @@ let voices = []
 
 
 function getVoicesList() {
-    /// @FIXME: voices still an empty array
+        /// @FIXME: voices still an empty array
   voices = speechSynthesis.getVoices()
 
   voices.forEach(voice => {
