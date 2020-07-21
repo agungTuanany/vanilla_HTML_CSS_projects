@@ -1,0 +1,71 @@
+/*
+* XXX NOTE: firefox doesn't support conic-gradient XXX
+*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+:root {
+    --green-te-papa     : #224941;
+    --white-solid       : #FFFFFF;
+    --blue-charcoal     : #010F1C;
+    --green-tradewind   : #55B7A4;
+    --green-tradewind-2 : #4CA493;
+    --green-casal       : #336D62;
+    --green-plantation  : #2A5B52;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--green-te-papa) no-repeat center center/cover;
+    color: var(--white-solid);
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 300px;
+    width: 300px;
+    position: relative;
+    transform: scale(1);
+}
+
+.circle {
+    background-color: var(--blue-charcoal);
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+
+.gradient-circle {
+    /* background: conic-gradient( */
+    /*     var(--green-tradewind) 0%, */
+    /*     var(--green-tradewind-2) 40%, */
+    /*     var(--white-solid) 40%, */
+    /*     var(--white-solid) 60%, */
+    /*     var(--green-casal) 60%, */
+    /*     var(--green-plantation) 100% */
+    /* ); */
+    background: var(--green-tradewind);
+    height: 320px;
+    width: 320px;
+    z-index: -2;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
