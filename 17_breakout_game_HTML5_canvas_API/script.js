@@ -18,7 +18,7 @@ const ball = {
     y_axis      : canvas.height / 2,
     size        : 10,
     speed       : 4,
-    direction_x : 4,                      // direction
+    direction_x : 4,
     direction_y : -4
 }
 
@@ -92,26 +92,77 @@ const drawBricks = () => {
     })
 }
 
+// Move paddle on canvas
+const movePaddle = () => {
+    paddle.x_axis += paddle.direction_x
 
-// Rules event
-const rulesBtnOnClick = () => rules.classList.add("show")
+    // Wall detection
+    if (paddle.x_axis + paddle.width > canvas.width) {
+        paddle.x_axis = canvas.width - paddle.width
+    }
 
-// Close event
-const closeBtnOnClick = () => rules.classList.remove("show")
+    if (paddle.x_axis < 0) {
+        paddle.x_axis = 0
+    }
+}
 
 
-// Init functionality
-const run = () => {
+// Init Draw onto screen
+const draw = () => {
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
     drawBall()
     drawPaddle()
     drawScore()
     drawBricks()
 }
 
-run()
+// Update the canvas drawing and animation
+const update = () => {
+    // Move paddle
+    movePaddle()
 
-// Event Listner
+    // Draw everything
+    draw()
+
+    requestAnimationFrame(update)
+}
+
+// Init update
+update()
+
+// Rules event handlers
+const rulesBtnOnClick = () => rules.classList.add("show")
+
+// Close event handlers
+const closeBtnOnClick = () => rules.classList.remove("show")
+
+// Keyboard Up event handlers
+const keyDown = (event) => {
+    if (event.key === "Right" || event.key === "ArrowRight") {
+        paddle.direction_x = paddle.speed
+    }
+    else if (event.key === "Left" || event.key === "ArrowLeft") {
+        paddle.direction_x = -paddle.speed
+    }
+}
+
+// Keyboard down event handlers
+const keyUp = (event) => {
+    if (
+        event.key === "Right" ||
+        event.key === "ArrowRight" ||
+        event.key === "Left" ||
+        event.key === "ArrowLeft") {
+        paddle.direction_x = 0
+    }
+}
+
+// Event Listener
 rulesBtn.addEventListener("click", rulesBtnOnClick)
 closeBtn.addEventListener("click", closeBtnOnClick)
+document.addEventListener("keydown", keyDown)
+document.addEventListener("keyup", keyUp)
 
 
