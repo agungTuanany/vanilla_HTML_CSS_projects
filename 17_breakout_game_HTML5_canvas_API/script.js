@@ -24,7 +24,7 @@ const ball = {
 
 // Create paddle props
 const paddle = {
-    x_axis      : canvas.width / 2 -40,
+    x_axis      : canvas.width / 2 - 40,
     y_axis      : canvas.height - 20,
     width       : 80,
     height      : 10,
@@ -68,9 +68,9 @@ const drawBall = () => {
 const drawPaddle = () => {
     ctx.beginPath()
     ctx.rect(paddle.x_axis, paddle.y_axis, paddle.width, paddle.height)
-    ctx.closePath()
     ctx.fillStyle = blue_science
     ctx.fill()
+    ctx.closePath()
 }
 
 // Draw score on canvas
@@ -85,7 +85,7 @@ const drawBricks = () => {
         column.forEach(brick => {
             ctx.beginPath()
             ctx.rect(brick.x_axis, brick.y_axis, brick.width, brick.height)
-            ctx.fllStyle = brick.visible ? blue_science : "transparent"
+            ctx.fillStyle = brick.visible ? blue_science : "transparent"
             ctx.fill()
             ctx.closePath()
         })
@@ -106,6 +106,47 @@ const movePaddle = () => {
     }
 }
 
+// Move ball on canvas
+function moveBall() {
+    ball.x_axis += ball.direction_x
+    ball.y_axis += ball.direction_y
+
+    // Wall collision (right/left)
+    if (ball.x_axis + ball.size > canvas.width || ball.x_axis - ball.size < 0) {
+        ball.direction_x *= -1
+    }
+
+    // Wall collision (top/bottom)
+    if (ball.y_axis + ball.size > canvas.height || ball.y_axis - ball.size < 0) {
+        ball.direction_y *= -1
+    }
+
+    // Paddle collision
+    if (ball.x_axis - ball.size > paddle.x_axis &&                          // check right side
+        ball.x_axis + ball.size < paddle.x_axis + paddle.width &&           // check left side
+        ball.y_axis + ball.size > paddle.y_axis                             // check top & bottom
+    ){
+        ball.direction_y = -ball.speed
+    }
+
+    // Brick collision
+    bricks.forEach(column => {
+        column.forEach(brick => {
+            if(brick.visible) {
+                if (
+                    ball.x_axis - ball.size > brick.x_axis &&                   // left brick side check
+                    ball.x_axis + ball.size < brick.x_axis + brick.width &&     // right brick side check
+                    ball.y_axis + ball.size > brick.y_axis &&                   // top brick side check
+                    ball.y_axis - ball.size < brick.y_axis + brick.height       // bottom brick side check
+                ){
+                    ball.direction_y *= -1
+                    brick.visible = false
+                }
+            }
+        })
+    })
+}
+
 
 // Init Draw onto screen
 const draw = () => {
@@ -123,9 +164,13 @@ const update = () => {
     // Move paddle
     movePaddle()
 
+    // Move ball
+    moveBall()
+
     // Draw everything
     draw()
 
+    // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFramehttps://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
     requestAnimationFrame(update)
 }
 
