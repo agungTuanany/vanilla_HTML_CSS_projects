@@ -184,7 +184,6 @@ const showAllBricks = () => {
     })
 }
 
-
 // Init Draw onto screen
 const draw = () => {
     // Clear canvas
