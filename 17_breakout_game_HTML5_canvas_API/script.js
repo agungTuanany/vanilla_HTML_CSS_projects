@@ -107,7 +107,7 @@ const movePaddle = () => {
 }
 
 // Move ball on canvas
-function moveBall() {
+const  moveBall = () => {
     ball.x_axis += ball.direction_x
     ball.y_axis += ball.direction_y
 
@@ -141,9 +141,46 @@ function moveBall() {
                 ){
                     ball.direction_y *= -1
                     brick.visible = false
+
+                    increaseScore()
                 }
             }
         })
+    })
+
+    // Hit bottom wall = lose
+    if (ball.y_axis + ball.size > canvas.height) {
+        showAllBricks()
+        score = 0
+    }
+}
+
+// Increase score
+const increaseScore = () => {
+    score++
+
+    if (score % (brickRowCount * brickColumnCount) === 0) {
+        ball.visible = false
+        paddle.visible =false
+
+        // After 0.5sec restart the game
+
+        setTimeout(() => {
+            showAllBricks()
+            paddle.x_axis = canvas.width / 2 - 40
+            paddle.y_axis = canvas.height - 20
+            ball.x_axis = canvas.width / 2
+            ball.y_axis = canvas.height / 2
+            ball.visible = true
+            paddle.visible = true
+        }, 500)
+    }
+}
+
+// Make all bricks appear
+const showAllBricks = () => {
+    bricks.forEach(column => {
+        column.forEach(brick => brick.visible = true)
     })
 }
 
